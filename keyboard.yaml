@@ -85,10 +85,12 @@ outlines:
           shift: [0.5px,0.5py]
         - ref: main_inner_num
           shift: [0.5px,0.5py]
+        - ref: main_inner_num
+          shift: [1.8px,0.5py]
         - ref: main_single_home
-          shift: [0.5px,0.5py]
+          shift: [1px,0.5py]
         - ref: main_single_home
-          shift: [0.5px,-0.5py]
+          shift: [1px,-0.5py]
         - ref: thumb_oouter_cluster
           shift: [0.5px,0.5py]
         - ref: thumb_oouter_cluster
@@ -118,15 +120,17 @@ pcbs:
         what: choc
         where: true
         params:
-          keycaps: true
+          show_keycaps: true
           reverse: true
           hotswap: true
+          solder: false
           from: "{{column_net}}"
           to: "{{colrow}}"
       diode:
         what: diode
         where: true
         params:
+          include_tht: true
           from: "{{colrow}}"
           to: "{{row_net}}"
         adjust:
@@ -135,19 +139,16 @@ pcbs:
         what: Niceview
         where:
           ref: main_single_home
-          shift: [1,30]
-          rotate: 90
+          shift: [0px,1.5py]
+          rotate: 0
         params:
-          outline: true
           side: 'F'
-          SDA: SDA
-          SCL: SCL
-          VCC: VCC
-          GND: GND
-          CS: CS
+          reverse: true
+          show_labels: false
+          jumpers_at_bottom: false
       nicenano:
         what: Nicenano
         where:
           ref: main_single_home
-          shift: [1,100]
+          shift: [0.25px,1.7py]
           rotate: 0
