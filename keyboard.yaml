@@ -1,0 +1,153 @@
+units:
+  # Proxy Spacing Variables
+  kx: cx
+  ky: cy
+  # Padding Variables
+  px: kx + 4
+  py: ky + 4
+points:
+  zones:
+    main:
+      key:
+        padding: 1ky
+        spread: 1kx
+      columns:
+        outer:
+        pinky:
+          key.stagger:  
+        ring:
+          key.stagger: 6
+        middle:
+          key.stagger: 5
+        index:
+          key.stagger: -5
+        inner:
+          key.stagger: -3
+        single:
+          key:
+            stagger: -9
+          rows.num.skip: true
+          rows.top.skip: true
+          rows.bottom.skip: true
+      rows:
+        bottom:
+        home:
+        top:
+        num:
+    thumb:
+      key:
+        padding: 1ky
+        spread: 1kx
+      anchor: 
+        ref: main_inner_bottom
+        shift: [-27,-16]
+      columns:
+        inner:
+        home:
+          key:  
+            rotate: 3
+            shift: [2.2,-1.3]
+        outer:
+          key: 
+            shift: [5.5,-2.]
+        oouter:
+          key: 
+            shift: [8.5,-2.5]
+      rows:
+        cluster:
+          splay: -13
+outlines:
+  raw:
+    - what: rectangle
+      where: true
+      bound: true
+      size: [px, py]
+  keys:
+    - what: rectangle
+      where: true
+      bound: false
+      size: [kx-0.5,ky-0.5] 
+  board:
+    - what: polygon
+      operation: stack
+      points:
+        - ref: main_outer_num
+          shift: [-0.5px,0.5py]
+        - ref: main_pinky_num
+          shift: [-0.5px,0.5py]
+        - ref: main_ring_num
+          shift: [-0.5px,0.5py]
+        - ref: main_middle_num
+          shift: [-0.5px,0.5py]
+        - ref: main_middle_num
+          shift: [0.5px,0.5py]
+        - ref: main_index_num
+          shift: [0.5px,0.5py]
+        - ref: main_inner_num
+          shift: [0.5px,0.5py]
+        - ref: main_single_home
+          shift: [0.5px,0.5py]
+        - ref: main_single_home
+          shift: [0.5px,-0.5py]
+        - ref: thumb_oouter_cluster
+          shift: [0.5px,0.5py]
+        - ref: thumb_oouter_cluster
+          shift: [0.5px,-0.5py]
+        - ref: thumb_oouter_cluster
+          shift: [-0.5px,-0.5py]
+        - ref: thumb_outer_cluster
+          shift: [-0.5px,-0.5py]
+        - ref: thumb_home_cluster
+          shift: [-0.5px,-0.5py]
+        - ref: thumb_inner_cluster
+          shift: [-0.5px,-0.5py]
+        - ref: main_outer_bottom
+          shift: [-0.5px,-0.5py]
+      fillet: 5
+  combo:
+    - name: board
+    - operation: subtract
+      name: keys
+pcbs:
+  main:
+    outlines:
+      main:
+        outline: board
+    footprints:
+      choc_hotswap:
+        what: choc
+        where: true
+        params:
+          keycaps: true
+          reverse: true
+          hotswap: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+      diode:
+        what: diode
+        where: true
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0, -5]
+      niceview:
+        what: Niceview
+        where:
+          ref: main_single_home
+          shift: [1,30]
+          rotate: 90
+        params:
+          outline: true
+          side: 'F'
+          SDA: SDA
+          SCL: SCL
+          VCC: VCC
+          GND: GND
+          CS: CS
+      nicenano:
+        what: Nicenano
+        where:
+          ref: main_single_home
+          shift: [1,100]
+          rotate: 0

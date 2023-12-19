@@ -17,4 +17,8 @@ module.exports = {
     slider: require('./slider'),
     trrs: require('./trrs'),
     via: require('./via'),
+    Niceview: require('./niceview'),
+    Nicenano: require('./nicenano'),
+    promicro_pretty: require('./promicro_pretty'),
+    switch: require('./pcm12.js'),
 }
