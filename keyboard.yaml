@@ -13,27 +13,38 @@ points:
         spread: 1kx
       columns:
         outer:
+          key.column_net: P21
         pinky:
           key.stagger:  
+          key.column_net: P20
         ring:
           key.stagger: 6
+          key.column_net: P19
         middle:
           key.stagger: 5
+          key.column_net: P18
         index:
           key.stagger: -5
+          key.column_net: P17
         inner:
           key.stagger: -3
+          key.column_net: P16
         single:
           key:
             stagger: -9
           rows.num.skip: true
           rows.top.skip: true
           rows.bottom.skip: true
+          key.column_net: P15
       rows:
         bottom:
+          row_net: P14
         home:
-        top:
+          row_net: P13
+        top: 
+          row_net: P12
         num:
+          row_net: P11
     thumb:
       key:
         padding: 1ky
