@@ -1,0 +1,61 @@
+units:
+  # Proxy Spacing Variables
+  kx: cx
+  ky: cy
+  # Padding Variables
+  px: kx + 4
+  py: ky + 4
+points:
+  zones:
+    main:
+      key:
+        padding: 1ky
+        spread: 1kx
+      columns:
+        one:
+          rows:
+            floor:
+              key:
+                shift: [0.5px,0.0py]
+        two:
+          rows.floor.skip: true
+        three:
+        four:
+          rows.bottom.skip: true
+      rows:
+        floor:
+          key:
+            one:
+              shift: [0.5px,0.5py]
+        bottom:
+        home:
+        top:
+        num:
+outlines:
+  raw:
+    - what: rectangle
+      where: true
+      bound: true
+      size: [px, py]
+  keys:
+    - what: rectangle
+      where: true
+      bound: false
+      size: [kx-0.5,ky-0.5] 
+  board:
+    - what: polygon
+      operation: stack
+      points:
+        - ref: main_one_floor
+          shift: [-0.5px,-0.5py]
+        - ref: main_four_floor
+          shift: [0.5px,-0.5py]
+        - ref: main_four_num
+          shift: [0.5px,0.5py]
+        - ref: main_one_num
+          shift: [-0.5px,0.5py]
+      fillet: 2
+  combo:
+    - name: board
+    - operation: subtract
+      name: keys
