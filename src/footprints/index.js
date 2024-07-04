@@ -1,3 +1,6 @@
+const { re } = require('mathjs');
+const mounting_hole_npth = require('./mounting_hole_npth.js');
+
 module.exports = {
     alps: require('./alps'),
     button: require('./button'),
@@ -20,5 +23,8 @@ module.exports = {
     Niceview: require('./niceview'),
     Nicenano: require('./nicenano'),
     promicro_pretty: require('./promicro_pretty'),
-    switch: require('./pcm12.js'),
+    switch: require('./pcm12.js'),  
+    reset: require('./reset_switch_tht_top.js'), 
+    mounting_hole_npth: require('./mounting_hole_npth.js'),
+    logo: require('./utility_ergogen_logo.js'),
 }
