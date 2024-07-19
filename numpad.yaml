@@ -61,7 +61,7 @@ points:
             shift: [0.497kx,0.0ky]
       rows:
         only:
-          row_net: P15
+          row_net: P15 #where my error was
         
 outlines:
   raw:
