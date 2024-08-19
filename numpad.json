@@ -1,0 +1,786 @@
+{
+    "units": {
+        "kx": "cx",
+        "ky": "cy",
+        "px": "kx + 4",
+        "py": "ky + 4",
+        "dpx": "kx + 8",
+        "dpy": "ky + 8",
+        "pkx": 14,
+        "pky": 14,
+        "screwSize": 1.5,
+        "standoffSize": 2.5,
+        "u": "U",
+        "stabilizer_width": 7,
+        "stabilizer_height": 14,
+        "stabilizer_offset": -1,
+        "stabilizer_spacing_2u": "u / 2 + stabilizer_width / 2 + ((23.8 / 2) - (14 / 2) - (stabilizer_width / 2))"
+    },
+    "points": {
+        "zones": {
+            "main": {
+                "anchor.shift": [
+                    100,
+                    -100
+                ],
+                "key": {
+                    "padding": "1ky",
+                    "spread": "1kx"
+                },
+                "columns": {
+                    "one": {
+                        "rows.floor.skip": true,
+                        "key.column_net": "P14"
+                    },
+                    "two": {
+                        "rows.floor.skip": true,
+                        "key.column_net": "P16"
+                    },
+                    "three": {
+                        "rows.floor.skip": false,
+                        "key.column_net": "P10"
+                    },
+                    "four": {
+                        "rows.floor.skip": false,
+                        "key.column_net": "P9"
+                    }
+                },
+                "rows": {
+                    "floor": {
+                        "row_net": "P21"
+                    },
+                    "bottom": {
+                        "row_net": "P20"
+                    },
+                    "home": {
+                        "row_net": "P19"
+                    },
+                    "top": {
+                        "row_net": "P18"
+                    },
+                    "num": {
+                        "row_net": "P15"
+                    }
+                }
+            },
+            "bottom": {
+                "anchor.shift": [
+                    100,
+                    -100
+                ],
+                "columns": {
+                    "zero": {
+                        "key": {
+                            "column_net": "P14",
+                            "width": "2kx",
+                            "shift": [
+                                "0.497kx",
+                                "0.0ky"
+                            ]
+                        }
+                    }
+                },
+                "rows": {
+                    "only": {
+                        "row_net": "P15"
+                    }
+                }
+            }
+        }
+    },
+    "outlines": {
+        "raw": [
+            {
+                "what": "rectangle",
+                "where": true,
+                "bound": true,
+                "size": [
+                    "px",
+                    "py"
+                ]
+            }
+        ],
+        "keycaps": [
+            {
+                "what": "rectangle",
+                "where": [
+                    "bottom_zero_only"
+                ],
+                "bound": false,
+                "operation": "stack",
+                "size": [
+                    35.5,
+                    16.4
+                ]
+            },
+            {
+                "what": "rectangle",
+                "where": true,
+                "bound": false,
+                "operation": "stack",
+                "size": [
+                    17.5,
+                    16.5
+                ]
+            }
+        ],
+        "keys": [
+            {
+                "what": "rectangle",
+                "where": true,
+                "bound": false,
+                "size": [
+                    "kx-0.5",
+                    "ky-0.5"
+                ]
+            }
+        ],
+        "2u_stabilizer": [
+            {
+                "operation": "stack",
+                "where": "2u_stabilizers",
+                "what": "rectangle",
+                "size": [
+                    "stabilizer_width",
+                    "stabilizer_height"
+                ],
+                "adjust": {
+                    "shift": [
+                        "stabilizer_spacing_2u",
+                        "stabilizer_offset"
+                    ]
+                }
+            },
+            {
+                "operation": "stack",
+                "where": "2u_stabilizers",
+                "what": "rectangle",
+                "size": [
+                    "stabilizer_width",
+                    "stabilizer_height"
+                ],
+                "adjust": {
+                    "shift": [
+                        "-stabilizer_spacing_2u",
+                        "stabilizer_offset"
+                    ]
+                }
+            }
+        ],
+        "platekeys": [
+            {
+                "what": "rectangle",
+                "where": true,
+                "bound": false,
+                "size": [
+                    "pkx",
+                    "pky"
+                ]
+            }
+        ],
+        "board": [
+            {
+                "what": "polygon",
+                "operation": "stack",
+                "points": [
+                    {
+                        "ref": "main_one_num",
+                        "shift": [
+                            "-1.7px",
+                            "0.5py"
+                        ]
+                    },
+                    {
+                        "ref": "main_four_num",
+                        "shift": [
+                            "0.7px",
+                            "0.5py"
+                        ]
+                    },
+                    {
+                        "ref": "main_four_floor",
+                        "shift": [
+                            "0.7px",
+                            "-0.5py"
+                        ]
+                    },
+                    {
+                        "ref": "bottom_zero_only",
+                        "shift": [
+                            "-1.1px",
+                            "-0.5py"
+                        ]
+                    },
+                    {
+                        "ref": "bottom_zero_only",
+                        "shift": [
+                            "-1.1px",
+                            "1.5py"
+                        ]
+                    },
+                    {
+                        "ref": "bottom_zero_only",
+                        "shift": [
+                            "-2.1px",
+                            "1.5py"
+                        ]
+                    }
+                ],
+                "fillet": 2
+            }
+        ],
+        "xlBoard": [
+            {
+                "what": "polygon",
+                "operation": "stack",
+                "points": [
+                    {
+                        "ref": "main_one_num",
+                        "shift": [
+                            "-1.6dpx",
+                            "0.5dpy"
+                        ]
+                    },
+                    {
+                        "ref": "main_four_num",
+                        "shift": [
+                            "0.7dpx",
+                            "0.5dpy"
+                        ]
+                    },
+                    {
+                        "ref": "main_four_floor",
+                        "shift": [
+                            "0.7dpx",
+                            "-0.55dpy"
+                        ]
+                    },
+                    {
+                        "ref": "bottom_zero_only",
+                        "shift": [
+                            "-1.1dpx",
+                            "-0.55dpy"
+                        ]
+                    },
+                    {
+                        "ref": "bottom_zero_only",
+                        "shift": [
+                            "-1.1dpx",
+                            "1.13dpy"
+                        ]
+                    },
+                    {
+                        "ref": "bottom_zero_only",
+                        "shift": [
+                            "-1.94dpx",
+                            "1.13dpy"
+                        ]
+                    }
+                ],
+                "fillet": 2
+            }
+        ],
+        "combo": [
+            {
+                "name": "board"
+            },
+            {
+                "operation": "subtract",
+                "name": "keys"
+            }
+        ],
+        "plate": [
+            {
+                "what": "polygon",
+                "operation": "stack",
+                "points": [
+                    {
+                        "ref": "main_one_num",
+                        "shift": [
+                            "-1.5px",
+                            "0.5py"
+                        ]
+                    },
+                    {
+                        "ref": "main_four_num",
+                        "shift": [
+                            "0.5px",
+                            "0.5py"
+                        ]
+                    },
+                    {
+                        "ref": "main_four_floor",
+                        "shift": [
+                            "0.5px",
+                            "-0.49py"
+                        ]
+                    },
+                    {
+                        "ref": "bottom_zero_only",
+                        "shift": [
+                            "-1.1px",
+                            "-0.5py"
+                        ]
+                    },
+                    {
+                        "ref": "bottom_zero_only",
+                        "shift": [
+                            "-1.1px",
+                            "1.5py"
+                        ]
+                    },
+                    {
+                        "ref": "bottom_zero_only",
+                        "shift": [
+                            "-1.9px",
+                            "1.5py"
+                        ]
+                    }
+                ],
+                "fillet": 2
+            },
+            {
+                "operation": "subtract",
+                "name": "platekeys"
+            }
+        ],
+        "mounting": [
+            {
+                "what": "circle",
+                "radius": "screwSize",
+                "where": {
+                    "ref": [
+                        "main_one_num"
+                    ],
+                    "shift": [
+                        -11,
+                        5
+                    ]
+                }
+            },
+            {
+                "what": "circle",
+                "radius": "screwSize",
+                "where": {
+                    "ref": [
+                        "main_four_num"
+                    ],
+                    "shift": [
+                        11.5,
+                        -4
+                    ]
+                }
+            },
+            {
+                "what": "circle",
+                "radius": "screwSize",
+                "where": {
+                    "ref": [
+                        "bottom_zero_only"
+                    ],
+                    "shift": [
+                        -14,
+                        0
+                    ]
+                }
+            },
+            {
+                "what": "circle",
+                "radius": "screwSize",
+                "where": {
+                    "ref": [
+                        "main_four_bottom"
+                    ],
+                    "shift": [
+                        11.5,
+                        -4
+                    ]
+                }
+            }
+        ],
+        "standoff": [
+            {
+                "what": "circle",
+                "radius": "standoffSize",
+                "where": {
+                    "ref": [
+                        "main_one_num"
+                    ],
+                    "shift": [
+                        -11,
+                        5
+                    ]
+                }
+            },
+            {
+                "what": "circle",
+                "radius": "standoffSize",
+                "where": {
+                    "ref": [
+                        "main_four_num"
+                    ],
+                    "shift": [
+                        11.5,
+                        -4
+                    ]
+                }
+            },
+            {
+                "what": "circle",
+                "radius": "standoffSize",
+                "where": {
+                    "ref": [
+                        "bottom_zero_only"
+                    ],
+                    "shift": [
+                        -14,
+                        0
+                    ]
+                }
+            },
+            {
+                "what": "circle",
+                "radius": "standoffSize",
+                "where": {
+                    "ref": [
+                        "main_four_bottom"
+                    ],
+                    "shift": [
+                        11.5,
+                        -4
+                    ]
+                }
+            }
+        ],
+        "switchplate": [
+            {
+                "what": "polygon",
+                "operation": "stack",
+                "points": [
+                    {
+                        "ref": "main_one_num",
+                        "shift": [
+                            "-0.7px",
+                            "0.5py"
+                        ]
+                    },
+                    {
+                        "ref": "main_four_num",
+                        "shift": [
+                            "0.7px",
+                            "0.5py"
+                        ]
+                    },
+                    {
+                        "ref": "main_four_floor",
+                        "shift": [
+                            "0.7px",
+                            "-0.5py"
+                        ]
+                    },
+                    {
+                        "ref": "bottom_zero_only",
+                        "shift": [
+                            "-1.1px",
+                            "-0.5py"
+                        ]
+                    },
+                    {
+                        "ref": "bottom_zero_only",
+                        "shift": [
+                            "-1.1px",
+                            "1.5py"
+                        ]
+                    },
+                    {
+                        "ref": "bottom_zero_only",
+                        "shift": [
+                            "-1.1px",
+                            "1.5py"
+                        ]
+                    }
+                ],
+                "fillet": 2
+            },
+            {
+                "operation": "subtract",
+                "name": "platekeys"
+            },
+            {
+                "operation": "subtract",
+                "name": "mounting"
+            }
+        ],
+        "total": [
+            {
+                "name": "board"
+            },
+            {
+                "operation": "subtract",
+                "name": "mounting"
+            },
+            {
+                "operation": "subtract",
+                "name": "keys"
+            }
+        ],
+        "pcb": [
+            {
+                "name": "board"
+            },
+            {
+                "operation": "subtract",
+                "name": "mounting"
+            }
+        ]
+    },
+    "pcbs": {
+        "numpad": {
+            "template": "kicad8",
+            "outlines": {
+                "main": {
+                    "outline": "board"
+                }
+            },
+            "footprints": {
+                "choc_hotswap": {
+                    "what": "choc",
+                    "where": true,
+                    "params": {
+                        "reverse": false,
+                        "hotswap": true,
+                        "from": "{{column_net}}",
+                        "to": "{{colrow}}"
+                    }
+                },
+                "diode": {
+                    "what": "diode",
+                    "where": true,
+                    "params": {
+                        "from": "{{colrow}}",
+                        "to": "{{row_net}}"
+                    },
+                    "adjust": {
+                        "shift": [
+                            0,
+                            -5
+                        ]
+                    }
+                },
+                "nicenano": {
+                    "what": "promicro",
+                    "params": {
+                        "orientation": "down"
+                    },
+                    "where": {
+                        "ref": "main_one_num",
+                        "shift": [
+                            -24,
+                            -8
+                        ],
+                        "rotate": -90
+                    }
+                },
+                "reset": {
+                    "what": "reset",
+                    "params": {
+                        "from": "GND",
+                        "to": "RST"
+                    },
+                    "where": {
+                        "ref": "main_one_num",
+                        "shift": [
+                            -27,
+                            -30
+                        ],
+                        "rotate": 90
+                    }
+                },
+                "battery": {
+                    "what": "jstph",
+                    "params": {
+                        "designator": "JST",
+                        "side": "F",
+                        "pos": "P01",
+                        "neg": "GND"
+                    },
+                    "where": {
+                        "ref": "main_one_num",
+                        "shift": [
+                            -19,
+                            -33
+                        ],
+                        "rotate": 180
+                    }
+                },
+                "slider": {
+                    "what": "slider",
+                    "params": {
+                        "side": "F",
+                        "from": "VCC",
+                        "to": "P01"
+                    },
+                    "where": {
+                        "ref": "main_one_num",
+                        "shift": [
+                            -35,
+                            -29
+                        ],
+                        "rotate": 90
+                    }
+                },
+                "holeTopLeft": {
+                    "what": "mounting_hole_npth",
+                    "where": {
+                        "ref": [
+                            "main_one_num"
+                        ],
+                        "shift": [
+                            -11,
+                            5
+                        ]
+                    }
+                },
+                "holeTopRight": {
+                    "what": "mounting_hole_npth",
+                    "where": {
+                        "ref": [
+                            "main_four_num"
+                        ],
+                        "shift": [
+                            11.5,
+                            -4
+                        ]
+                    }
+                },
+                "holeBotLeft": {
+                    "what": "mounting_hole_npth",
+                    "where": {
+                        "ref": [
+                            "bottom_zero_only"
+                        ],
+                        "shift": [
+                            -14,
+                            0
+                        ]
+                    }
+                },
+                "holeBotRight": {
+                    "what": "mounting_hole_npth",
+                    "where": {
+                        "ref": [
+                            "main_four_bottom"
+                        ],
+                        "shift": [
+                            11.5,
+                            -4
+                        ]
+                    }
+                },
+                "logo": {
+                    "what": "logo",
+                    "where": {
+                        "ref": [
+                            "bottom_zero_only"
+                        ],
+                        "shift": [
+                            -19,
+                            -5
+                        ]
+                    },
+                    "params": {
+                        "designator": "LOGO",
+                        "side": "F",
+                        "layer": "SilkS",
+                        "reversible": false,
+                        "scale": 1
+                    }
+                }
+            }
+        }
+    },
+    "cases": {
+        "bottom": [
+            {
+                "name": "board",
+                "extrude": 1.5
+            }
+        ],
+        "xlBottom": [
+            {
+                "name": "xlBoard",
+                "extrude": 1.5
+            }
+        ],
+        "_outerWall": [
+            {
+                "name": "xlBoard",
+                "extrude": 5.6
+            }
+        ],
+        "_innerWall": [
+            {
+                "name": "board",
+                "extrude": 5.6
+            }
+        ],
+        "wall": [
+            {
+                "what": "case",
+                "name": "_outerWall",
+                "operation": "add"
+            },
+            {
+                "what": "case",
+                "name": "_innerWall",
+                "operation": "subtract"
+            }
+        ],
+        "_holes": [
+            {
+                "name": "mounting",
+                "extrude": 4.5
+            }
+        ],
+        "_standoffs": [
+            {
+                "name": "standoff",
+                "extrude": 4.5
+            }
+        ],
+        "case": [
+            {
+                "what": "case",
+                "name": "_standoffs",
+                "operation": "add"
+            },
+            {
+                "what": "case",
+                "name": "_holes",
+                "operation": "subtract"
+            },
+            {
+                "what": "case",
+                "name": "xlBottom",
+                "operation": "add"
+            },
+            {
+                "what": "case",
+                "name": "wall",
+                "operation": "add"
+            }
+        ],
+        "switchplate": [
+            {
+                "name": "switchplate",
+                "extrude": 1.2
+            }
+        ],
+        "pcb": [
+            {
+                "name": "pcb",
+                "extrude": 1.5
+            }
+        ]
+    }
+}
